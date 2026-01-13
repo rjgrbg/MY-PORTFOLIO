@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   burgerMenu.addEventListener('click', () => {
     burgerMenu.classList.toggle('active');
     navMenu.classList.toggle('active');
+    // Disable body scroll when menu is open
+    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
   });
 
   // Close menu when clicking on a link
@@ -15,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', () => {
       burgerMenu.classList.remove('active');
       navMenu.classList.remove('active');
+      // Re-enable body scroll
+      document.body.style.overflow = '';
     });
   });
 
