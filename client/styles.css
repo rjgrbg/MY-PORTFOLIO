@@ -635,7 +635,7 @@ body {
 
 .grid-project:hover {
   transform: translateY(-8px);
-  border: rgb(81, 81, 81) 0.2px solid;
+  border: rgba(255, 0, 0, 0.422) 0.1px solid;
 }
 
 .grid-proj-img {
@@ -740,6 +740,27 @@ body {
   height: 20vh;
   margin: 50px auto;
 }
+
+.text-info {
+  max-height: 55px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.text-info.expanded {
+  max-height: 500px;
+}
+
+.see-more {
+  background: none;
+  border: none;
+  color: #b4b4b4;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  margin-top: 6px;
+}
+
 
 
 /* Services Section */
@@ -1125,7 +1146,6 @@ body {
 
   .grid-my-projects {
     width: 90%;
-    grid-template-columns: 1fr 1fr;
   }
 
   .content-services {
@@ -1350,7 +1370,6 @@ body {
   .grid-my-projects {
     grid-template-columns: 1fr;
     gap: 25px;
-    grid-template-rows: repeat(4, 500px);
   }
 
   .services-grid {
@@ -1416,9 +1435,7 @@ body {
     grid-template-rows: repeat(6, 150px);
   }
 
-  .grid-my-projects {
-    grid-template-rows: repeat(6, 250px);
-  }
+
 
   .services-grid {
     grid-template-rows: repeat(4, 220px);

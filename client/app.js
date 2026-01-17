@@ -98,3 +98,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (target) observer.observe(target);
   });
 });
+
+const textInfo = document.getElementById("text-info");
+const btn = document.getElementById("seeMoreBtn");
+
+function checkTextOverflow() {
+  // If full height fits inside collapsed height
+  if (textInfo.scrollHeight <= textInfo.clientHeight) {
+    btn.style.display = "none";
+  }
+}
+
+function toggleText() {
+  textInfo.classList.toggle("expanded");
+  btn.textContent = textInfo.classList.contains("expanded")
+    ? "See less"
+    : "See more";
+}
+
+// Run on load
+window.addEventListener("load", checkTextOverflow);
