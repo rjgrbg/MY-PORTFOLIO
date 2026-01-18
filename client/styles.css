@@ -555,6 +555,18 @@ body {
   font-weight: 700;
 }
 
+.grid-skill p {
+  font-size: 15px;
+  margin: 0 20px;
+  text-align: center;
+}
+
+.grid-skill i {
+  font-size: 40px;
+  color: #ff0000;
+  margin-top: 20px;
+}
+
 
 
 .grid-skill {
@@ -805,6 +817,21 @@ body {
   width: 60px;
   margin: 20px 20px 20px 230px;
   display: right;
+  
+  animation-name: float;
+  animation-duration: 3s; 
+  animation-iteration-count: infinite; 
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(20px);
+  }
 }
 
 .grid-service h3 {
@@ -1024,6 +1051,18 @@ body {
 .contact-section form input::placeholder,
 .contact-section form textarea::placeholder {
   color: rgba(255, 255, 255, 0.5);
+}
+
+footer {
+  height: 60px;
+  background-color: #202020;
+}
+
+footer p {
+  color: #b3b3b3;
+  text-align: center;
+  line-height: 60px;
+  font-size: 14px;
 }
 
 /* Responsive */
