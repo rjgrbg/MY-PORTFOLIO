@@ -29,7 +29,7 @@
       <a href="#skills">Skills</a>
       <a href="#project">Project</a>
       <a href="#services">Services</a>
-      <button class="contact-btn">Contact</button>
+      <button class="contact-btn" id="contact-btn">Contact</button>
     </nav>
   </header>
 
@@ -314,60 +314,60 @@
     <div class="work-with-me">
       <h2>Interested in working together?</h2>
       <p>I'm available for freelance projects and full-time opportunities. Let's connect and discuss how I can help bring your ideas to life!</p>
-      <button class="btn-contact-me">CONTACT ME</button>
+      <button class="btn-contact-me" id="contact-btn">CONTACT ME</button>
     </div>
 
     
   </section>
 
-  <section class="contact-section" id="contact">
+  <footer>
+    <p>&copy; 2026 Arjay Garabiag. All rights reserved.</p>
+  </footer>
 
-    <h1 class="about">Contact</span> <span style="color: red;">Me</span></h1>
-    <p>If you have any questions, inquiries, or would like to discuss potential 
-    projects, please feel free to reach out to me using the contact form below. I look forward to hearing from you!</p>
+  <script src="app.js"></script>
 
+  <!--Modals-->
+  
+  <!--Contact modal-->
+  <!-- Modal for Contact -->
+<div id="contact-modal" class="modal-overlay" style="display: none;">
+  <div class="modal-content">
+    <span class="close-btn" id="close-btn">&times;</span>
+    <h1>Contact <span style="color: red;">Me</span></h1>
+    <p>If you have any questions, inquiries, or would like to discuss potential projects, please feel free to reach out to me using the contact form below. I look forward to hearing from you!</p>
+    
     <div class="grid-information-contact">
-
       <div class="information info-1">
         <div class="info-icon">
           <span><i class="fa-solid fa-phone"></i></span>
         </div>
-        
         <div class="info-details">
           <h3>Phone</h3>
           <p>+63 909 888 0313</p>
         </div>
       </div>
-
       <div class="information info-2">
         <div class="info-icon">
           <span><i class="fa-solid fa-envelope"></i></span>
         </div>
-        
         <div class="info-details">
           <h3>Email</h3>
           <p>garabiag.arjay04@email.com</p>
         </div>
       </div>
-
       <div class="information info-3">
         <div class="info-icon">
           <span><i class="fa-solid fa-location-dot"></i></span>
         </div>
-        
         <div class="info-details">
           <h3>Location</h3>
           <p>Barangay Commonwealth, Quezon City</p>
         </div>
       </div>
     </div>
-
     
     <h2>Send me a Message</h2>
-    <p style="margin: 50px auto;">
-      Whether you have a question, want to discuss a project, or just want to say hello, 
-      feel free to send me a message using the form below. I will get back to you as soon as possible!
-    </p>
+    <p>Whether you have a question, want to discuss a project, or just want to say hello, feel free to send me a message using the form below. I will get back to you as soon as possible!</p>
     
     <form>
       <label for="name">Name:</label><br>
@@ -381,17 +381,8 @@
       
       <input type="submit" value="Send Message">
     </form>
-    
+  </div>
+</div>
 
-  </section>
-
-  <footer>
-    <p>&copy; 2026 Arjay Garabiag. All rights reserved.</p>
-  </footer>
-
-
-
-
-  <script src="app.js"></script>
 </body>
 </html>

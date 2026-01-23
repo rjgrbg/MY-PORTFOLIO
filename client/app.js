@@ -97,6 +97,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const target = document.querySelector(link.getAttribute('href'));
     if (target) observer.observe(target);
   });
+ 
+  // Modal Contact
+const contactBtn = document.getElementById('contact-btn');
+const contactModal = document.getElementById('contact-modal');
+const closebtn = document.getElementById('close-btn');
+
+contactBtn.addEventListener('click', () => {
+  contactModal.style.display = 'flex';
+});
+
+closebtn.addEventListener('click', () => {
+  contactModal.style.display = 'none';
+});
+
+contactModal.addEventListener('click', (event) => {
+  if (event.target === contactModal) {
+    contactModal.style.display = 'none';
+  }
+});
+
+const openContactModalBtns = document.querySelectorAll('.btn-hiring, #contact-btn');
+
+openContactModalBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    contactModal.style.display = 'flex';
+  });
+});
+
 });
 
 const textInfo = document.getElementById("text-info");
@@ -118,3 +146,9 @@ function toggleText() {
 
 // Run on load
 window.addEventListener("load", checkTextOverflow);
+
+
+
+
+
+

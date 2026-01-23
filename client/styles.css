@@ -4,11 +4,17 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Arial', sans-serif;
   color: #fff;
   overflow-x: hidden;
   background: #000000;
+  position: relative;
+  width: 100%;
 }
 
 /* Animated Background */
@@ -119,7 +125,7 @@ body {
 }
 
 .navbar button {
-  margin-left: 350px;
+  margin-left: auto;
 }
 
 
@@ -133,6 +139,7 @@ body {
   display: flex;
   align-items: center;
   gap: 50px;
+  margin-left: auto;
 }
 
 .nav-menu a {
@@ -538,6 +545,10 @@ body {
   margin: 0 auto;
   color: #ccc;
 }
+.skills-section h2 {
+  font-size: 28px;
+  margin-top: 50px;
+}
 
 .grid-my-skills {
   display: grid;
@@ -923,136 +934,6 @@ body {
   box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
 }
 
-/* Contact Section */
-
-.contact-section {
-  padding: 60px 80px;
-  min-height: calc(100vh - 100px);
-  text-align: center;
-}
-
-.contact-section h1 {
-  font-size: 36px;
-  margin-bottom: 30px;
-  text-align: center;
-  align-items: center;
-}
-
-.contact-section p {
-  font-size: 18px;
-  line-height: 1.6;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-  color: #ccc;
-}
-
-.grid-information-contact {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 25vh;
-  gap: 15px;
-  width: 100%;
-  max-width: 80vw;
-  margin: 50px auto;
-}
-
-.information {
-  background: rgba(28, 28, 28, 0.688);
-  border-radius: 8px;
-  padding: 20px;
-}
-
-.info-icon i {
-  color: red;
-  margin-top: 20px;
-  font-size: 40px;
-}
-
-.info-details {
-  margin: 50px auto;
-}
-
-.contact-section h2 {
-  font-size: 25px;
-  margin-top: 50px;
-  margin-bottom: 20px;
-}
-
-.contact-section form {
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: left;
-  width: 100%;
-  padding: 40px;
-  background-color: rgba(28, 28, 28, 0.8);
-  border: 1px solid rgba(197, 197, 197, 0.1);
-  border-radius: 8px;
-
-}
-
-.contact-section form label {
-  color: #fff;
-  font-weight: bold;
-  display: block;
-  margin-bottom: 8px;
-  font-size: 16px;
-  font-weight: 100;
-  letter-spacing: 0.5px;
-}
-
-.contact-section form input,
-.contact-section form textarea {
-  width: 100%;
-  padding: 12px 15px;
-  margin-bottom: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 5px;
-  font-size: 16px;
-  background-color: rgba(255, 255, 255, 0.05);
-  color: #fff;
-  transition: all 0.3s ease;
-  font-family: inherit;
-}
-
-.contact-section form input:focus,
-.contact-section form textarea:focus {
-  outline: none;
-  border-color: #474747;
-  background-color: rgba(136, 136, 136, 0.05);
-  box-shadow: 0 0 10px rgba(209, 209, 209, 0.2);
-}
-
-.contact-section form input[type="submit"] {
-  background: #ff0000;
-  color: #fff;
-  border: none;
-  padding: 14px 40px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  width: 100%;
-  letter-spacing: 1px;
-  margin: 0;
-  max-width: 700px;
-}
-
-.contact-section form input[type="submit"]:hover {
-  background: #cc0000;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 20px rgba(255, 0, 0, 0.4);
-}
-
-.contact-section form input[type="submit"]:active {
-  transform: translateY(0);
-}
-
-.contact-section form input::placeholder,
-.contact-section form textarea::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-
 footer {
   height: 60px;
   background-color: #202020;
@@ -1063,6 +944,159 @@ footer p {
   text-align: center;
   line-height: 60px;
   font-size: 14px;
+}
+
+
+/* Modal Contact */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: rgb(40, 40, 40);
+  padding: 40px;
+  border-radius: 8px;
+  max-width: 70vw;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 30px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #ff0000;
+}
+
+.modal-content h1 {
+  margin: 30px 0;
+  font-size: 32px;
+  text-align: center;
+}
+
+.modal-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  width: 100%;
+  max-width: 800px;
+  color: #ccc;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.modal-content h2 {
+  font-size: 28px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.grid-information-contact {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.information {
+  background: rgba(255, 255, 255, 0.688);
+  border-radius: 8px;
+  padding: 40px 20px;
+  text-align: center;
+  color: rgb(6, 6, 6);
+}
+.information h3 {
+  margin-bottom: 15px;
+}
+
+.info-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  color: rgb(255, 0, 0);
+  justify-content: center;
+  margin: 0 auto 15px auto;
+}
+
+.info-icon i {
+  font-size: 20px;
+}
+
+.information p {
+  font-size: 16px;
+  line-height: 1.4;
+  color: rgb(6, 6, 6);
+}
+
+.modal-content::-webkit-scrollbar {
+    background: transparent;
+    transition: all ease 0.3s;
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.modal-content form {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  padding: 20px 0;
+}
+
+.modal-content form input,
+.modal-content form textarea {
+  width: 100%;
+  padding: 15px 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: 'Arial', sans-serif;
+  font-size: 15px;
+}
+
+.modal-content form input[type="submit"] {
+  background: #ff0000;
+  color: white;
+  border: none;
+  padding: 20px;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.modal-content form input[type="submit"]:hover {
+  background: #e60000;
+}
+
+.modal-content form input[type="submit"]:active {
+  transform: scale(0.98);
 }
 
 /* Responsive */
@@ -1230,8 +1264,9 @@ footer p {
   .skills-carousel {
     overflow: hidden;
     width: 100vw;
-    margin-left: calc(-1 * (100vw - 100%) / 2);
-    margin-right: calc(-1 * (100vw - 100%) / 2);
+    margin-left: calc(-50vw + 50%);
+    margin-right: 0;
+    padding: 20px 0;
   }
 
 
@@ -1250,7 +1285,7 @@ footer p {
   .nav-menu {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: -100vw;
     width: 100%;
     height: 100vh;
     background: #000000 !important;
@@ -1291,6 +1326,7 @@ footer p {
     padding: 20px 30px;
     backdrop-filter: none;
     z-index: 1000;
+    overflow-x: hidden;
   }
 
   .hero {
