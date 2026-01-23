@@ -125,7 +125,48 @@ openContactModalBtns.forEach(btn => {
   });
 });
 
+
+// Email Handling form 
+const contactForm = document.querySelector('#contact-modal form');
+
+contactForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value
+
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body:JSON.stringify({ name, email, message })
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      alert('Message sent successfully');
+      contactForm.reset();
+      contactModal.style.display = 'none';
+    } else {
+      alert('Failed to send message, Please try again.');
+    }
+  }
+
+  catch (error) {
+    console.error('Error:', error);
+    alert('An error occurred. Please try again');
+  }
+
 });
+
+
+});
+
+
 
 const textInfo = document.getElementById("text-info");
 const btn = document.getElementById("seeMoreBtn");
