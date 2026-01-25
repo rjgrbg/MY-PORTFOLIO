@@ -131,11 +131,10 @@ body {
   margin-left: auto;
 }
 
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #ff0000;
+.logo img {
+  height: 40px; 
+  width: 70px; 
+  cursor: pointer;
 }
 
 .nav-menu {
@@ -170,15 +169,15 @@ body {
 }
 
 .burger-menu span {
-  width: 25px;
-  height: 3px;
+  width: 20px;
+  height: 2.5px;
   background: #fff;
   transition: all 0.3s ease;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 .burger-menu.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 6px);
+  transform: rotate(45deg) translate(4px, 6.5px);
 }
 
 .burger-menu.active span:nth-child(2) {
@@ -186,7 +185,7 @@ body {
 }
 
 .burger-menu.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -6px);
+  transform: rotate(-45deg) translate(4px, -6.5px);
 }
 
 .contact-btn {
@@ -1293,7 +1292,7 @@ footer p {
 }
 
 @media (max-width: 768px) {
-  /* Burger Menu */
+  /* Burger Menu - Keep it visible and fixed */
   .burger-menu {
     display: flex;
     z-index: 1001;
@@ -1302,27 +1301,56 @@ footer p {
     right: 30px;
   }
 
-  .nav-menu {
+  /* Mobile Menu Dark Overlay */
+  .mobile-menu-overlay {
     position: fixed;
     top: 0;
-    right: -100vw;
+    left: 0;
     width: 100%;
-    height: 100vh;
-    background: #000000 !important;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    gap: 40px;
-    transition: right 0.3s ease;
-    z-index: 999;
-    backdrop-filter: none !important;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 998;
   }
 
-  
+  .mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Navigation Menu Overlay */
+  .nav-menu {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100vw;
+    height: 0;
+    max-height: calc(100vh - 80px);
+    background: rgba(0, 0, 0, 0.803) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    gap: 30px;
+    transition: all 0.3s ease;
+    transform: translateY(-20px);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+    overflow: hidden;
+  }
 
   .nav-menu.active {
-    right: 0;
+    height: auto;
+    padding: 40px 0;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    overflow-y: auto;
   }
 
   .nav-menu a {
@@ -1346,9 +1374,22 @@ footer p {
     padding: 20px 30px;
     backdrop-filter: none;
     z-index: 1000;
-    overflow-x: hidden;
   }
 
+  .logo img {
+  height: 30px; 
+  width: 60px; 
+  cursor: pointer;
+}
+
+  /* Prevent body scroll when menu is open */
+  body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+
+  /* Rest of your mobile styles */
   .hero {
     padding: 40px 20px;
     min-height: auto;
