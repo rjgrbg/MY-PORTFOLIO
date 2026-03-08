@@ -199,6 +199,112 @@ contactForm.addEventListener('submit', async (e) => {
 
 });
 
+// Case Study Modal
+const caseStudyModal = document.getElementById('case-study-modal');
+const csCloseBtn = document.getElementById('cs-close-btn');
+const caseStudyLinks = document.querySelectorAll('.proj-case-study');
+
+// Case study data for each project
+const caseStudyData = {
+  lakbay: {
+    title: 'Lakbay',
+    overview: 'A comprehensive travel website that provides information about tourist destinations, travel guides, and booking services. Built with modern web technologies to offer an intuitive user experience.',
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design'],
+    challenges: 'Creating a responsive design that works across all devices while maintaining performance and user experience.',
+    solutions: 'Implemented mobile-first design approach with CSS Grid and Flexbox for flexible layouts.',
+    learnings: 'Improved understanding of responsive web design and the importance of user-centered design in travel applications.',
+    screenshots: ['./assets/lakbay.png'],
+    demoLink: 'https://gbgarj.github.io/Lakbay-group6/'
+  },
+  lms: {
+    title: 'LMS Contemporary',
+    overview: 'A learning management system website designed for contemporary education, providing tools for online learning and course management.',
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'Web APIs'],
+    challenges: 'Integrating various educational features while maintaining a clean and intuitive interface.',
+    solutions: 'Used modular JavaScript architecture and CSS components for maintainable code.',
+    learnings: 'Gained experience in building educational platforms and understanding user learning patterns.',
+    screenshots: ['./assets/lms1.png'],
+    demoLink: 'https://contemporary-world-eta.vercel.app/'
+  },
+  pms: {
+    title: 'PMS Celestia Hotel',
+    overview: 'A collaborative team project that produced a property management system for hotel operations. I contributed as a front-end developer, building user interfaces and coordinating with teammates on backend integration and testing.',
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'MySQL', 'Backend Integration'],
+    challenges: 'Coordinating work across teammates, merging code, and ensuring consistency in data handling while maintaining security.',
+    solutions: 'Established Git workflows for collaboration, designed a modular PHP backend with shared coding standards, and added input validation across forms.',
+    learnings: 'Gained experience in team development, version control, and the importance of clear communication in group projects.',
+    screenshots: ['./assets/pms.png'],
+    demoLink: '#'
+  }
+};
+
+// Function to populate modal content
+function populateCaseStudyModal(projectKey) {
+  const data = caseStudyData[projectKey];
+  if (!data) return;
+  
+  document.getElementById('cs-project-title').textContent = data.title;
+  document.getElementById('cs-overview').textContent = data.overview;
+  document.getElementById('cs-challenges').textContent = data.challenges;
+  document.getElementById('cs-solutions').textContent = data.solutions;
+  document.getElementById('cs-learnings').textContent = data.learnings;
+  document.getElementById('cs-demo-link').href = data.demoLink;
+  
+  // populate screenshots
+  const screenshotDiv = document.getElementById('cs-screenshots');
+  screenshotDiv.innerHTML = '';
+  if (data.screenshots && data.screenshots.length) {
+    data.screenshots.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = `${data.title} screenshot`;
+      screenshotDiv.appendChild(img);
+    });
+  }
+  
+  // Populate technologies list
+  const techList = document.getElementById('cs-technologies');
+  techList.innerHTML = '';
+  data.technologies.forEach(tech => {
+    const li = document.createElement('li');
+    li.textContent = tech;
+    techList.appendChild(li);
+  });
+}
+
+// Event listeners for case study links
+caseStudyLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const projectCard = link.closest('.grid-project');
+    
+    // Determine which project based on class or data attribute
+    let projectKey = '';
+    if (projectCard.classList.contains('project-1')) {
+      projectKey = 'lakbay';
+    } else if (projectCard.classList.contains('project-2')) {
+      projectKey = 'lms';
+    } else if (projectCard.classList.contains('project-3')) {
+      projectKey = 'pms';
+    }
+    
+    if (projectKey) {
+      populateCaseStudyModal(projectKey);
+      caseStudyModal.style.display = 'flex';
+    }
+  });
+});
+
+// Close modal
+csCloseBtn.addEventListener('click', () => {
+  caseStudyModal.style.display = 'none';
+});
+
+caseStudyModal.addEventListener('click', (event) => {
+  if (event.target === caseStudyModal) {
+    caseStudyModal.style.display = 'none';
+  }
+});
 
 });
 
