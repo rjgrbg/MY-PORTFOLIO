@@ -235,6 +235,16 @@ const caseStudyData = {
     learnings: 'Gained experience in team development, version control, and the importance of clear communication in group projects.',
     screenshots: ['./assets/pms.png'],
     demoLink: '#'
+  },
+  barangay: {
+    title: 'Barangay Commonwealth Management System',
+    overview: 'A comprehensive web-based system designed to modernize Barangay Commonwealth operations in Quezon City. The system manages resident records, document requests (barangay clearance, certificates, permits), incident reports, announcements, and administrative tasks. Built with Node.js and MySQL to provide a secure, scalable solution for the local government unit.',
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'Node.js', 'Express', 'MySQL', 'RESTful API', 'Authentication'],
+    challenges: 'Implementing role-based access control for different user types (admin, staff, residents), ensuring data security for sensitive resident information, and creating an intuitive interface for users with varying technical skills in the community.',
+    solutions: 'Developed a modular Express backend with JWT authentication, implemented input validation and sanitization, created responsive UI components, and designed a normalized MySQL database schema for efficient data management specific to Barangay Commonwealth needs.',
+    learnings: 'Gained deep understanding of full-stack development with Node.js, database design for government systems, security best practices for handling personal data, and the importance of user-centered design in public service applications for local communities.',
+    screenshots: ['./assets/'],
+    demoLink: '#'
   }
 };
 
@@ -286,6 +296,8 @@ caseStudyLinks.forEach(link => {
       projectKey = 'lms';
     } else if (projectCard.classList.contains('project-3')) {
       projectKey = 'pms';
+    } else if (projectCard.classList.contains('project-4')) {
+      projectKey = 'barangay';
     }
     
     if (projectKey) {
