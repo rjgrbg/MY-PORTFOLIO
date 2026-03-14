@@ -168,9 +168,21 @@ const contactForm = document.querySelector('#contact-modal form');
 contactForm.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  // Client-side validation
+  if (!name || !email || !message) {
+    alert('Please fill in all fields');
+    return;
+  }
+
+  // Disable submit button to prevent double submission
+  const submitBtn = contactForm.querySelector('input[type="submit"]');
+  const originalText = submitBtn.value;
+  submitBtn.value = 'Sending...';
+  submitBtn.disabled = true;
 
   try {
     const response = await fetch('/api/contact', {
@@ -178,25 +190,28 @@ contactForm.addEventListener('submit', async (e) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body:JSON.stringify({ name, email, message })
+      body: JSON.stringify({ name, email, message })
     });
 
     const data = await response.json();
 
     if (data.success) {
-      alert('Message sent successfully');
+      alert('Message sent successfully! I will get back to you soon.');
       contactForm.reset();
       contactModal.style.display = 'none';
     } else {
-      alert('Failed to send message, Please try again.');
+      alert(data.message || 'Failed to send message. Please try again.');
     }
   }
-
   catch (error) {
     console.error('Error:', error);
-    alert('An error occurred. Please try again');
+    alert('An error occurred. Please try again or contact me directly at garabiag.arjay04@gmail.com');
   }
-
+  finally {
+    // Re-enable submit button
+    submitBtn.value = originalText;
+    submitBtn.disabled = false;
+  }
 });
 
 // Case Study Modal
@@ -214,7 +229,7 @@ const caseStudyData = {
     solutions: 'Implemented mobile-first design approach with CSS Grid and Flexbox for flexible layouts.',
     learnings: 'Improved understanding of responsive web design and the importance of user-centered design in travel applications.',
     screenshots: ['./assets/lakbay.png'],
-    demoLink: 'https://gbgarj.github.io/Lakbay-group6/'
+    demoLink: 'https://gbgarj.github.io/Lakbay-group6/?fbclid=IwY2xjawPUjRxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAEwAAEeeipE9H47K63DBTAk-CWJbJpM0aL1j8KLLVgglFm93QBOlcGIHFQ4gibBYFY_aem_ZBtYMoXemv7JwBRGcfu0cA'
   },
   lms: {
     title: 'LMS Contemporary',
