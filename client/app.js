@@ -260,6 +260,16 @@ const caseStudyData = {
     learnings: 'Gained deep understanding of full-stack development with Node.js, database design for government systems, security best practices for handling personal data, and the importance of user-centered design in public service applications for local communities.',
     screenshots: ['./assets/'],
     demoLink: '#'
+  },
+  jollinget: {
+    title: 'Jollinget POS',
+    overview: 'A Point of Sale system designed to streamline sales transactions, inventory management, and customer data handling for retail businesses. Built with ASP.NET and C# for robust performance, reliability, and scalability in high-transaction environments.',
+    technologies: ['ASP.NET', 'C#', 'MySQL', 'Windows Forms', 'ADO.NET'],
+    challenges: 'Ensuring real-time inventory updates during concurrent transactions, implementing secure payment processing, and creating an intuitive interface for cashiers with minimal training requirements.',
+    solutions: 'Implemented transaction-based database operations with proper locking mechanisms, designed a clean Windows Forms interface with keyboard shortcuts for speed, and created comprehensive reporting features for sales analytics.',
+    learnings: 'Gained experience in desktop application development with .NET framework, understanding of retail business workflows, database transaction management, and the importance of performance optimization in high-volume systems.',
+    screenshots: ['./assets/pos.png'],
+    demoLink: '#'
   }
 };
 
@@ -268,7 +278,6 @@ function populateCaseStudyModal(projectKey) {
   const data = caseStudyData[projectKey];
   if (!data) return;
   
-  document.getElementById('cs-project-title').textContent = data.title;
   document.getElementById('cs-overview').textContent = data.overview;
   document.getElementById('cs-challenges').textContent = data.challenges;
   document.getElementById('cs-solutions').textContent = data.solutions;
@@ -313,6 +322,8 @@ caseStudyLinks.forEach(link => {
       projectKey = 'pms';
     } else if (projectCard.classList.contains('project-4')) {
       projectKey = 'barangay';
+    } else if (projectCard.classList.contains('project-5')) {
+      projectKey = 'jollinget';
     }
     
     if (projectKey) {

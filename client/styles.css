@@ -665,6 +665,12 @@ body {
   margin: 50px auto;
 }
 
+.grid-my-projects .grid-project:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  max-width: calc(50% - 7.5px);
+  margin: 0 auto;
+}
+
 .grid-project {
   background: rgba(28, 28, 28, 0.688);
   border-radius: 8px;
@@ -1266,7 +1272,7 @@ footer p {
 .cs-screenshots img {
   max-width: 650px;
   width: 100%;
-  margin: 0 auto 20px;
+  margin: 40px auto 20px;
   display: block;
   border-radius: 4px;
 }
