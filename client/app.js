@@ -276,7 +276,7 @@ const caseStudyData = {
     challenges: 'Implementing role-based access control for different user types (admin, staff, residents), ensuring data security for sensitive resident information, and creating an intuitive interface for users with varying technical skills in the community.',
     solutions: 'Developed a modular Express backend with JWT authentication, implemented input validation and sanitization, created responsive UI components, and designed a normalized MySQL database schema for efficient data management specific to Barangay Commonwealth needs.',
     learnings: 'Gained deep understanding of full-stack development with Node.js, database design for government systems, security best practices for handling personal data, and the importance of user-centered design in public service applications for local communities.',
-    screenshots: ['./assets/'],
+    screenshots: ['./assets/barangay.png'],
     demoLink: '#'
   },
   jollinget: {
