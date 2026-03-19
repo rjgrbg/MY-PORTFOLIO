@@ -18,6 +18,51 @@ body {
   padding-top: 80px;
 }
 
+/* Scroll Animation Classes */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-animate.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-animate-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-animate-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-animate-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-animate-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-animate-scale {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-animate-scale.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
 /* Animated Background */
 .animated-bg {
   position: fixed;
@@ -669,6 +714,14 @@ body {
   grid-column: 1 / -1;
   max-width: calc(50% - 7.5px);
   margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .grid-my-projects .grid-project:last-child:nth-child(odd) {
+    grid-column: auto;
+    max-width: 100%;
+    margin: 0;
+  }
 }
 
 .grid-project {
@@ -1639,17 +1692,25 @@ footer p {
   }
 
   .grid-images {
-    grid-template-columns: 1fr 1fr;
     width: 100%;
-    grid-template-rows: repeat(3, 150px);
+    max-width: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 150px 150px 150px;
+    gap: 10px;
   }
 
   .grid-item-1 {
-    grid-row: span 1;
+    grid-row: span 2;
   }
 
   .grid-item-wrapper {
-    display: contents;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .grid-item-wrapper .grid-item {
+    min-height: 70px;
   }
 
   .grid-my-qualities {
@@ -1835,13 +1896,6 @@ footer p {
   .contact-section h1 {
     font-size: 28px;
   }
-
-  .grid-images {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(6, 150px);
-  }
-
-
 
   .services-grid {
     grid-template-rows: repeat(4, 220px);

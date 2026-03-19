@@ -133,6 +133,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const target = document.querySelector(link.getAttribute('href'));
     if (target) observer.observe(target);
   });
+
+  // Scroll Animation Observer
+  const scrollAnimateElements = document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale');
+  
+  const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  scrollAnimateElements.forEach(el => {
+    scrollObserver.observe(el);
+  });
  
   // Modal Contact
 const contactBtn = document.getElementById('contact-btn');
