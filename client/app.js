@@ -362,9 +362,44 @@ caseStudyModal.addEventListener('click', (event) => {
   }
 });
 
+// Media Lightbox for About Section
+const mediaLightbox = document.getElementById('media-lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxVideo = document.getElementById('lightbox-video');
+const gridItems = document.querySelectorAll('.grid-item');
+
+gridItems.forEach(item => {
+  item.addEventListener('click', () => {
+    const img = item.querySelector('img');
+    const video = item.querySelector('video');
+    
+    if (img) {
+      lightboxImg.src = img.src;
+      lightboxImg.style.display = 'block';
+      lightboxVideo.style.display = 'none';
+      lightboxVideo.pause();
+    } else if (video) {
+      lightboxVideo.src = video.src;
+      lightboxVideo.style.display = 'block';
+      lightboxImg.style.display = 'none';
+      lightboxVideo.play();
+    }
+    
+    mediaLightbox.style.display = 'flex';
+  });
 });
 
+// Close lightbox by clicking outside
+mediaLightbox.addEventListener('click', (e) => {
+  if (e.target === mediaLightbox) {
+    mediaLightbox.style.display = 'none';
+    lightboxVideo.pause();
+    lightboxVideo.src = '';
+    lightboxImg.src = '';
+  }
+});
 
+});
 
 const textInfo = document.getElementById("text-info");
 const btn = document.getElementById("seeMoreBtn");
@@ -391,3 +426,8 @@ window.addEventListener("load", checkTextOverflow);
 
 
 
+
+// Test at line 367
+console.log('Lightbox script loading...');
+console.log('mediaLightbox:', document.getElementById('media-lightbox'));
+console.log('gridItems:', document.querySelectorAll('.grid-item').length);

@@ -511,6 +511,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.grid-item:hover {
+  transform: scale(1.05);
 }
 
 .grid-item video {
@@ -518,6 +524,12 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.grid-item:hover video {
+  filter: grayscale(0%);
 }
 
 .grid-item img {
@@ -525,6 +537,12 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.grid-item:hover img {
+  filter: grayscale(0%);
 }
 
 .grid-item-1 {
@@ -1188,6 +1206,57 @@ footer p {
   justify-content: center;
   align-items: center;
   z-index: 1000;
+}
+
+/* Media Lightbox Modal */
+#media-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  cursor: pointer;
+}
+
+.lightbox-content {
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-content img,
+.lightbox-content video {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.lightbox-close-btn {
+  position: fixed;
+  top: 30px;
+  right: 50px;
+  font-size: 50px;
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 2001;
+  transition: color 0.3s;
+}
+
+.lightbox-close-btn:hover {
+  color: #ff0000;
+}
+
+.grid-item {
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 #cs-project-title {
